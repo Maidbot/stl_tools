@@ -20336,9 +20336,9 @@ static void __pyx_tp_dealloc_array(PyObject *o) {
   {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
-    Py_REFCNT(o)++;
+    Py_SET_REFCNT(o, Py_REFCNT(o)+1);
     __pyx_array___dealloc__(o);
-    Py_REFCNT(o)--;
+    Py_SET_REFCNT(o, Py_REFCNT(o)-1);
     PyErr_Restore(etype, eval, etb);
   }
   Py_CLEAR(p->mode);
@@ -20647,9 +20647,9 @@ static void __pyx_tp_dealloc_memoryview(PyObject *o) {
   {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
-    Py_REFCNT(o)++;
+    Py_SET_REFCNT(o, Py_REFCNT(o)+1);;
     __pyx_memoryview___dealloc__(o);
-    Py_REFCNT(o)--;
+    Py_SET_REFCNT(o, Py_REFCNT(o)-1);;
     PyErr_Restore(etype, eval, etb);
   }
   Py_CLEAR(p->obj);
@@ -20897,9 +20897,9 @@ static void __pyx_tp_dealloc__memoryviewslice(PyObject *o) {
   {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
-    Py_REFCNT(o)++;
+    Py_SET_REFCNT(o, Py_REFCNT(o)+1);;
     __pyx_memoryviewslice___dealloc__(o);
-    Py_REFCNT(o)--;
+    Py_SET_REFCNT(o, Py_REFCNT(o)-1);;
     PyErr_Restore(etype, eval, etb);
   }
   Py_CLEAR(p->from_object);
