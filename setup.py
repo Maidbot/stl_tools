@@ -11,6 +11,7 @@ EXTENSIONS = [ext_1]
 
 setup(name='stl_tools',
       version='0.4.2',
+      python_requires='>=3.2,<3.10',
       install_requires=[
         'numpy>=1.18.1',
         'scipy',
