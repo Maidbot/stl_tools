@@ -14,6 +14,7 @@ setup(name='stl_tools',
       install_requires=[
         'numpy>=1.18.1',
         'scipy',
+        'Cython>=0.29.24,<0.30.0',
         'matplotlib'],
       description="Generate STL files from numpy arrays and text",
       author='Tristan Hearn',
