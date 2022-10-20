@@ -11,11 +11,10 @@ EXTENSIONS = [ext_1]
 
 setup(name='stl_tools',
       version='0.4.2',
-      python_requires='>=3.2,<3.10',
       install_requires=[
         'numpy>=1.18.1',
         'scipy',
-        'Cython>=0.29.24,<0.30.0',
+        'Cython>=0.29,<0.29.27',
         'matplotlib'],
       description="Generate STL files from numpy arrays and text",
       author='Tristan Hearn',
