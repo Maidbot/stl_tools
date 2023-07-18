@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 1
         id: checkout
       - uses: actions/setup-python@v2
-        name: Install Python 3.8
+        name: Install Python 3.10
         with:
           python-version: '3.10'
           architecture: 'x64'
