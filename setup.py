@@ -1,5 +1,5 @@
 from setuptools import setup, Extension
-import os 
+import os
 
 SRC_DIR = "stl_tools"
 
@@ -12,10 +12,10 @@ EXTENSIONS = [ext_1]
 setup(name='stl_tools',
       version='0.4.2',
       install_requires=[
-        'numpy>=1.18.1',
-        'scipy',
-        'Cython>=0.29.14,<0.30.0',
-        'matplotlib'],
+          'numpy>=1.18.1',
+          'scipy',
+          'Cython>=0.29.14,<0.30.0',
+          'matplotlib'],
       description="Generate STL files from numpy arrays and text",
       author='Tristan Hearn',
       author_email='tristanhearn@gmail.com',
