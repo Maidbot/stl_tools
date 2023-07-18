@@ -9,6 +9,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.10"]
+
     steps:
       - name: checkout repo
         uses: actions/checkout@v1
@@ -16,9 +20,9 @@ jobs:
           fetch-depth: 1
         id: checkout
       - uses: actions/setup-python@v2
-        name: Install Python 3.8
+        name: Install Python ${{ matrix.python-version }}
         with:
-          python-version: '3.8'
+          python-version: ${{ matrix.python-version }}
           architecture: 'x64'
       - name: Install dependencies
         run: |
