@@ -20336,9 +20336,19 @@ static void __pyx_tp_dealloc_array(PyObject *o) {
   {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
-    Py_SET_REFCNT(o, Py_REFCNT(o)+1);
+    #if PY_MINOR_VERSION >= 10
+      Py_SET_REFCNT(o, Py_REFCNT(o)+1);
+    #endif
+    #if PY_MINOR_VERSION < 10
+      ++Py_REFCNT(o);
+    #endif
     __pyx_array___dealloc__(o);
-    Py_SET_REFCNT(o, Py_REFCNT(o)-1);
+    #if PY_MINOR_VERSION >= 10
+      Py_SET_REFCNT(o, Py_REFCNT(o)-1);
+    #endif
+    #if PY_MINOR_VERSION < 10
+      --Py_REFCNT(o);
+    #endif 
     PyErr_Restore(etype, eval, etb);
   }
   Py_CLEAR(p->mode);
@@ -20647,9 +20657,19 @@ static void __pyx_tp_dealloc_memoryview(PyObject *o) {
   {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
-    Py_SET_REFCNT(o, Py_REFCNT(o)+1);;
+    #if PY_MINOR_VERSION >= 10
+      Py_SET_REFCNT(o, Py_REFCNT(o)+1);;
+    #endif
+    #if PY_MINOR_VERSION < 10
+      ++Py_REFCNT(o);
+    #endif
     __pyx_memoryview___dealloc__(o);
-    Py_SET_REFCNT(o, Py_REFCNT(o)-1);;
+    #if PY_MINOR_VERSION >= 10
+      Py_SET_REFCNT(o, Py_REFCNT(o)-1);;
+    #endif
+    #if PY_MINOR_VERSION < 10
+      --Py_REFCNT(o);
+    #endif
     PyErr_Restore(etype, eval, etb);
   }
   Py_CLEAR(p->obj);
@@ -20897,9 +20917,19 @@ static void __pyx_tp_dealloc__memoryviewslice(PyObject *o) {
   {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
-    Py_SET_REFCNT(o, Py_REFCNT(o)+1);;
+    #if PY_MINOR_VERSION >= 10
+      Py_SET_REFCNT(o, Py_REFCNT(o)+1);;
+    #endif
+    #if PY_MINOR_VERSION < 10
+      ++Py_REFCNT(o);
+    #endif
     __pyx_memoryviewslice___dealloc__(o);
-    Py_SET_REFCNT(o, Py_REFCNT(o)-1);;
+    #if PY_MINOR_VERSION >= 10
+      Py_SET_REFCNT(o, Py_REFCNT(o)-1);;
+    #endif
+    #if PY_MINOR_VERSION < 10
+      --Py_REFCNT(o);
+    #endif
     PyErr_Restore(etype, eval, etb);
   }
   Py_CLEAR(p->from_object);
